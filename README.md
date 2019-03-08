@@ -31,38 +31,61 @@ And the height map arc tile is ~ 25MB.
 # Isolate area of interest
 
 Once you have the region of interest use gdalwarp to extract the regions of interest.
-This is the script I used for mcmillan.
+This is the script I used for mcmillan and yosemite
 
 
-    #!/bin/bash
+    #!/bin/bash                                                                     
 
     set -x
-    # TOp left: 35.747585, -120.798966
-    # Bottom Right: 35.692125, -120.735120
 
+    # Yosemite                                                                      
+    SOUTH=37.6993
+    NORTH=37.7690
+    EAST=-119.5285
+    WEST=-119.5978
+    NAME=yosemite
+    RESOLUTION=5000
+    SOURCE_DIR=/data/temp_gis
+    PACKAGE_DIR=/tmp/ws/src/uav_testing/yosemite_valley
+    SOURCE_DEM=n37_w120_1arc_v3.tif
+    SOURCE_IMAGES='m_3711912_se_11_h_20160701.tif m_3711912_sw_11_h_20160701.tif m_\
+    3711920_ne_11_h_20160701.tif m_3711920_nw_11_h_20160701.tif'
+
+    # mcmillan                                                                      
     SOUTH=35.692125
     NORTH=35.755904
     EAST=-120.735120
     WEST=-120.798966
+    NAME=mcmillan
+    RESOLUTION=5000
+    SOURCE_DIR=/data/temp_gis/mcmillan
+    PACKAGE_DIR=/tmp/ws/src/uav_testing/mcmillan_airfield
+    SOURCE_DEM=n35_w121_1arc_v3.tif
+    SOURCE_IMAGES='5724_2452.tif 5724_2462.tif 5724_2472.tif 5734_2452.tif 5734_246\
+    2.tif 5734_2472.tif 5744_2452.tif 5744_2462.tif 5744_2472.tif'
 
-    LAT_OFFSET=-0.0055
-    ADJ_SOUTH=$(echo "$SOUTH+$LAT_OFFSET" | bc)
-    ADJ_NORTH=$(echo "$NORTH+$LAT_OFFSET" | bc)
 
-    LON_OFFSET=0.005
-    ADJ_EAST=$(echo "$EAST+$LON_OFFSET" | bc)
-    ADJ_WEST=$(echo "$WEST+$LON_OFFSET" | bc)
+    OUTPUT_IMAGE=${NAME}_color.tif
+    OUTPUT_DEM=${PACKAGE_DIR}/media/${NAME}_elevation.tif
+    OUTPUT_PNG=${PACKAGE_DIR}/media/textures/${NAME}_color.png
 
-    rm -f mcmillan_color.tif mcmillan_elevation.tif
 
-    gdalwarp -te $WEST $SOUTH $EAST $NORTH  n35_w121_1arc_v3.tif mcmillan_elevation.tif
+    cd $SOURCE_DIR
 
-    gdalwarp -t_srs '+proj=longlat +datum=WGS84 +no_defs ' -ts 6000 0 -te $ADJ_WEST $ADJ_SOUTH $ADJ_EAST $ADJ_NORTH 5724_2452.tif 5724_2462.tif 5724_2472.tif 5734_2452.tif 5734_2462.tif 5734_2472.tif 5744_2452.tif 5744_2462.tif 5744_2472.tif mcmillan_color.tif
-    convert mcmillan_color.tif mcmillan_color.png
+    rm -f $OUTPUT_DEM $OUTPUT_IMAGE $OUTPUT_PNG
+
+
+    gdalwarp -te $WEST $SOUTH $EAST $NORTH $SOURCE_DEM  $OUTPUT_DEM
+
+    gdalwarp -t_srs '+proj=longlat +datum=WGS84 +no_defs ' -ts $RESOLUTION 0 -te $W\
+    EST $SOUTH $EAST $NORTH $SOURCE_IMAGES $OUTPUT_IMAGE
+    convert $OUTPUT_IMAGE $OUTPUT_PNG
+
+
 
 Save these files into your gazebo resource path that's exported by the package.
 
-Note that the 6000 is the resolution of the file laterally. 
+Note that the 5000 is the resolution of the file laterally.
 
 # Generate World
 
@@ -71,16 +94,20 @@ Then create a world that references them.
 I pushed the pose down such that the airfield is at zero height in gazebo.
 The size of the texture is the width of the content in meters.
 
-Note that there seemed to be an offset due to possibly NAD1983 vs WGS1984 I'm not sure exactly where it came from.
-I had gdal fix the dataum, but I think there might be registration errors.
+Note that there's a scaling issue with the textures. I have ticketed it here: https://bitbucket.org/osrf/gazebo/issues/2603/texture-scaling-on-heightmaps-does-not
 
-Gazebo also seems to force the heightmap content to be square.
+It looks like a rendering of about 80% width is necessary.
+
+
+Gazebo also seems to work better with square content, this might have been an artifact from before validating the above ratio.
 
 # Developmet tip
 
 If you are changing any textures on the height map.
 Whether content or meta data it is all cached.
 To change anything you will need to remove the cached paging content in `~/.gazebo/paging/VISUAL_ELEMENT`
+
+Ticketed at: https://bitbucket.org/osrf/gazebo/issues/2604/the-default-caching-behavior-of-caching
 
 
 
