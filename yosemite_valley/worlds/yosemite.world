@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <world name="default">
+    <scene>
+      <sky>
+        <clouds>
+          <speed>12</speed>
+        </clouds>
+      </sky>
+    </scene>
+    <!-- A global light source -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <model name="heightmap">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision_yosemite">
+          <geometry>
+            <heightmap>
+              <uri>file://media/yosemite_elevation.tif</uri>
+              <!-- <size>7700 7700 1474</size> -->
+              <pos>0 0 -1202</pos>
+            </heightmap>
+          </geometry>
+        </collision>
+
+        <visual name="visual_yosemite">
+          <geometry>
+            <heightmap>
+              <texture>
+                <diffuse>file://media/textures/yosemite_color.png</diffuse>
+                <normal>file://media/materials/textures/flat_normal.png</normal>
+                <size>6000</size>
+              </texture>
+              <uri>file://media/yosemite_elevation.tif</uri>
+              <pos>0 0 -1202</pos>
+            </heightmap>
+          </geometry>
+        </visual>
+
+      </link>
+    </model>
+
+  </world>
+</sdf>
