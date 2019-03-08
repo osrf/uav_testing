@@ -82,3 +82,12 @@ If you are changing any textures on the height map.
 Whether content or meta data it is all cached.
 To change anything you will need to remove the cached paging content in `~/.gazebo/paging/VISUAL_ELEMENT`
 
+
+
+# Resources:
+
+A potential other approach is to overlay in QGIS: https://opengislab.com/blog/2018/3/20/3d-dem-visualization-in-qgis-30
+
+gdalwarp docs: https://www.gdal.org/gdalwarp.html
+
+SDF geometry documentation: http://sdformat.org/spec?elem=geometry&ver=1.6
