@@ -23,9 +23,6 @@
     <arg name="px4_home_alt" default="280"/>  
   </include>
 
-      <!-- <arg name="px4_home_lat" default="35.7197096"/>
-    <arg name="px4_home_lon" default="-120.7707523"/> -->
-
 <node name="drone" pkg="sitl_launcher" type="launch_drone" args="$(arg px4_model)" output="screen"/>
 
 <include file="$(find sitl_launcher)/launch/run_px4.launch">
