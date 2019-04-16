@@ -23,14 +23,5 @@
     <arg name="px4_home_alt" default="280"/>  
   </include>
 
-<node name="drone" pkg="sitl_launcher" type="launch_drone" args="$(arg px4_model)" output="screen"/>
-
-<include file="$(find sitl_launcher)/launch/run_px4.launch">
-  <arg name="px4_model" value="$(arg px4_model)"/>
-    <arg name="mavros" value="$(arg mavros)"/>
-    </include>
-
- <node name="qgc" pkg="qgroundcontrol" type="qgroundcontrol-start.sh" respawn="false" output="screen" required="true"/>
-
 
 </launch>
