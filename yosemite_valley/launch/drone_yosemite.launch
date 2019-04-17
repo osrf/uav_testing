@@ -11,7 +11,6 @@
   <arg name="respawn_gazebo" default="false"/>
   <arg name="use_clock_frequency" default="false"/>
   <arg name="pub_clock_frequency" default="100"/>
-  <arg name="px4_model" default="typhoon_h480"/>
 
   <arg name="world_name" default="worlds/yosemite.world"/> <!-- Note: the world_name is with respect to GAZEBO_RESOURCE_PATH environmental variable -->
 
@@ -20,7 +19,6 @@
     <arg name="px4_home_lat" default="37.733249"/>
     <arg name="px4_home_lon" default="-119.561883"/>
     <arg name="px4_home_alt" default="2800.4"/>
-    <arg name="debug" default="$(arg debug)"/>
   </include>
 
 
