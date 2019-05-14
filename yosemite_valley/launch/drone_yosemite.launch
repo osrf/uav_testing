@@ -11,24 +11,16 @@
   <arg name="respawn_gazebo" default="false"/>
   <arg name="use_clock_frequency" default="false"/>
   <arg name="pub_clock_frequency" default="100"/>
-  <arg name="px4_model" default="typhoon_h480"/>
-  <arg name="mavros" default="false"/>
 
-<arg name="world_name" default="worlds/typhoon_yosemite.world"/> <!-- Note: the world_name is with respect to GAZEBO_RESOURCE_PATH environmental variable -->
+  <arg name="world_name" default="worlds/yosemite.world"/> <!-- Note: the world_name is with respect to GAZEBO_RESOURCE_PATH environmental variable -->
 
   <include file="$(find sitl_launcher)/launch/sitl.launch" pass_all_args="true">
     <arg name="px4_set_home" value="true"/>
     <arg name="px4_home_lat" default="37.733249"/>
     <arg name="px4_home_lon" default="-119.561883"/>
-    <arg name="px4_home_alt" default="2800.4"/>  
+    <arg name="px4_home_alt" default="2800.4"/>
   </include>
 
-<include file="$(find sitl_launcher)/launch/run_px4.launch">
-  <arg name="px4_model" value="$(arg px4_model)"/>
-    <arg name="mavros" value="$(arg mavros)"/>
-    </include>
-
- <node name="qgc" pkg="qgroundcontrol" type="qgroundcontrol-start.sh" respawn="false" output="screen" required="true"/>
 
 
 </launch>
