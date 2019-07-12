@@ -16,8 +16,8 @@
 
   <include file="$(find sitl_launcher)/launch/sitl.launch" pass_all_args="true">
     <arg name="px4_set_home" value="true"/>
-    <arg name="px4_home_lat" default="37.522278"/>
-    <arg name="px4_home_lon" default="-122.253314"/>
+    <arg name="px4_home_lat" default="37.523640"/>
+    <arg name="px4_home_lon" default="-122.255122"/>
     <arg name="px4_home_alt" default="1.7"/>
   </include>
 
