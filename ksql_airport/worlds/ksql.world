@@ -16,36 +16,40 @@
       <uri>model://sun</uri>
     </include>
 
-    <model name="heightmap">
+    <model name="ksql_ground">
+      <pose>0 0 -3.5  0 0 0</pose>
       <static>true</static>
-      <link name="link">
-        <collision name="collision_ksql">
+      <link name="body">
+        <visual name="visual">
           <geometry>
-            <heightmap>
-              <uri>file://media/ksql_elevation.tif</uri>
-              <!-- <size>7700 7700 1474</size> -->
-              <pos>0 0 0</pos>
-            </heightmap>
-          </geometry>
-        </collision>
-
-        <visual name="visual_ksql">
-          <geometry>
-            <heightmap>
-              <texture>
-                <diffuse>file://media/textures/ksql_color.png</diffuse>
-                <normal>file://media/materials/textures/flat_normal.png</normal>
-                <size>3050</size>
-                <!-- real 3850  -->
-              </texture>
-              <uri>file://media/ksql_elevation.tif</uri>
-              <pos>0 0 0</pos>
-            </heightmap>
+            <mesh><uri>file://media/SanCarlosAirport_Terrain.DAE</uri></mesh>
           </geometry>
         </visual>
-
+        <collision name="collision">
+          <geometry>
+            <mesh><uri>file://media/SanCarlosAirport_Terrain.DAE</uri></mesh>
+          </geometry>
+        </collision>
       </link>
     </model>
+
+    <model name="ksql_buildings">
+      <pose>0 0 -3.5  0 0 0</pose>
+      <static>true</static>
+      <link name="body">
+        <visual name="visual">
+          <geometry>
+            <mesh><uri>file://media/SanCarlosAirport_Buildings.DAE</uri></mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh><uri>file://media/SanCarlosAirport_Buildings.DAE</uri></mesh>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
     <physics name='default_physics' default='0' type='ode'>
     <gravity>0 0 -9.8066</gravity>
     <ode>
