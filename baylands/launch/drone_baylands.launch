@@ -1,0 +1,26 @@
+<launch>
+  <!-- these are the arguments you can pass this launch file, for example paused:=true -->
+  <arg name="paused" default="false"/>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="extra_gazebo_args" default=""/>
+  <arg name="gui" default="true"/>
+  <arg name="recording" default="false"/>
+  <arg name="debug" default="false"/>
+  <arg name="physics" default="ode"/>
+  <arg name="verbose" default="false"/>
+  <arg name="respawn_gazebo" default="false"/>
+  <arg name="use_clock_frequency" default="false"/>
+  <arg name="pub_clock_frequency" default="100"/>
+
+  <arg name="world_name" default="worlds/baylands.world"/> <!-- Note: the world_name is with respect to GAZEBO_RESOURCE_PATH environmental variable -->
+
+  <include file="$(find sitl_launcher)/launch/sitl.launch" pass_all_args="true">
+    <arg name="px4_set_home" value="true"/>
+    <arg name="px4_home_lat" default="37.413534"/>
+    <arg name="px4_home_lon" default="-121.996561"/>
+    <arg name="px4_home_alt" default="1.3"/>
+  </include>
+
+
+
+</launch>

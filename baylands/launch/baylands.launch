@@ -1,0 +1,6 @@
+<launch>
+  <arg name="world_name" default="worlds/baylands.world"/> <!-- Note: the world_name is with respect to GAZEBO_RESOURCE_PATH environmental variable -->
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch" pass_all_args="true">
+  </include>
+</launch>
