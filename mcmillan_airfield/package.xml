@@ -7,7 +7,7 @@
   <maintainer email="tfoote@osrfoundation.org">Tully Foote</maintainer>
   <license>Apache 2.0</license>
 
-  <build_depend>ament_cmake<build_depend>
+  <build_depend>ament_cmake</build_depend>
   <exec_depend>gazebo_ros</exec_depend>
 
   <export>
