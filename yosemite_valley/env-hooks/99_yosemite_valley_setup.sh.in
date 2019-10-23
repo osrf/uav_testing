@@ -1,0 +1,4 @@
+
+ament_prepend_unique_value GAZEBO_MODEL_PATH "@CMAKE_INSTALL_PREFIX@/share/@PROJECT_NAME@/models"
+ament_prepend_unique_value GAZEBO_RESOURCE_PATH "@CMAKE_INSTALL_PREFIX@/share/@PROJECT_NAME@"
+ament_prepend_unique_value GAZEBO_PLUGIN_PATH "@CMAKE_INSTALL_PREFIX@/share/@PROJECT_NAME@/plugins"
