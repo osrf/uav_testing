@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>ksql_airport</name>
-  <version>0.0.1</version>
+  <version>2.0.0</version>
   <description>The ksql_airport package</description>
 
   <maintainer email="tfoote@osrfoundation.org">Tully Foote</maintainer>
@@ -11,7 +11,12 @@
   <build_depend>ament_cmake</build_depend>
   <exec_depend>gazebo_ros</exec_depend>
 
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
   <export>
     <build_type>ament_cmake</build_type>
+    <gazebo_ros gazebo_model_path="${prefix}/models"/>
+    <gazebo_ros gazebo_media_path="${prefix}"/>
   </export>
 </package>

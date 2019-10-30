@@ -11,9 +11,16 @@ endif()
 
 find_package(ament_cmake REQUIRED)
 
-install(DIRECTORY launch media worlds
- DESTINATION share/${PROJECT_NAME}
+install(DIRECTORY
+  launch
+  media
+  worlds
+  DESTINATION share/${PROJECT_NAME}
 )
 
-ament_environment_hooks(env-hooks/99_mcmillan_airfield_setup.sh.in)
+if(BUILD_TESTING)
+  find_package(ament_lint_auto REQUIRED)
+  ament_lint_auto_find_test_dependencies()
+endif()
+
 ament_package()

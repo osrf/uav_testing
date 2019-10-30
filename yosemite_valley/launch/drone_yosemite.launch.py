@@ -20,8 +20,8 @@ import os
 
 def generate_launch_description():
 
-    os.environ["PX4_HOME_LAT"] = "37.733249";
-    os.environ["PX4_HOME_LON"] = "-119.561883";
+    os.environ["PX4_HOME_LAT"] = "37.7332531";
+    os.environ["PX4_HOME_LON"] = "-119.5616378";
     os.environ["PX4_HOME_ALT"] = "2800.4";
 
     gazebo_dir = get_package_share_directory('gazebo_ros')
