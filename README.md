@@ -101,7 +101,7 @@ It looks like a rendering of about 80% width is necessary.
 
 Gazebo also seems to work better with square content, this might have been an artifact from before validating the above ratio.
 
-# Developmet tip
+# development tip
 
 If you are changing any textures on the height map.
 Whether content or meta data it is all cached.
