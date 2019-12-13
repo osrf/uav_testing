@@ -26,8 +26,7 @@
           </geometry>
           <material>
             <script>
-              <uri>file://media/scripts/</uri>
-              <uri>file://media/textures/</uri>
+              <uri>file://media/scripts/branch.material</uri>
               <name>OakTree/Branch</name>
             </script>
           </material>
@@ -50,8 +49,7 @@
           </geometry>
           <material>
             <script>
-              <uri>file://media/scripts/</uri>
-              <uri>file://media/textures/</uri>
+              <uri>file://media/scripts/branch.material</uri>
               <name>OakTree/Branch</name>
             </script>
           </material>
@@ -76,6 +74,109 @@
         <collision name="collision">
           <geometry>
             <mesh><uri>file://media/baylands_03.DAE</uri></mesh>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+    <model name="baylands_04">
+      <pose>0 0 -1.3 0 0 0</pose>
+      <static>true</static>
+      <link name="body">
+        <visual name="visual">
+          <geometry>
+            <mesh><uri>file://media/baylandsbuildings_01.dae</uri></mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh><uri>file://media/baylandsbuildings_01.dae</uri></mesh>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+    <model name="baylands_05">
+      <pose>0 0 -1.3 0 0 0</pose>
+      <static>true</static>
+      <link name="body">
+        <visual name="visual">
+          <geometry>
+            <mesh><uri>file://media/baylandsbuildings_02.dae</uri></mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh><uri>file://media/baylandsbuildings_02.dae</uri></mesh>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+    <model name="baylands_06">
+      <pose>0 0 -1.3 0 0 0</pose>
+      <static>true</static>
+      <link name="body">
+        <visual name="visual">
+          <geometry>
+            <mesh><uri>file://media/baylandsbuildingstrees_01.dae</uri></mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/scripts/branch.material</uri>
+              <name>OakTree/Branch</name>
+            </script>
+          </material>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh><uri>file://media/baylandsbuildingstress_01.dae</uri></mesh>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+    <model name="baylands_07">
+      <pose>0 0 -1.3 0 0 0</pose>
+      <static>true</static>
+      <link name="body">
+        <visual name="visual">
+          <geometry>
+            <mesh><uri>file://media/baylandsbuildingstrees_02.dae</uri></mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/scripts/branch.material</uri>
+              <name>OakTree/Branch</name>
+            </script>
+          </material>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh><uri>file://media/baylandsbuildingstrees_02.dae</uri></mesh>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+    <model name="baylands_08">
+      <pose>0 0 -1.3 0 0 0</pose>
+      <static>true</static>
+      <link name="body">
+        <visual name="visual">
+          <geometry>
+            <mesh><uri>file://media/baylandsbuildingstrees_03.dae</uri></mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/scripts/branch.material</uri>
+              <name>OakTree/Branch</name>
+            </script>
+          </material>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh><uri>file://media/baylandsbuildingstrees_03.dae</uri></mesh>
           </geometry>
         </collision>
       </link>
